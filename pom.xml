@@ -3,7 +3,7 @@
   <groupId>com.github.rwl</groupId>
   <artifactId>optimization</artifactId>
   <packaging>jar</packaging>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1</version>
   <name>optimization</name>
   <description>Optimization routines translated from FORTRAN to java.</description>
   <url>http://www1.fpl.fs.fed.us/optimization.html</url>

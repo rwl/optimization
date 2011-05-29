@@ -13,7 +13,7 @@ import corejava.Console;
 */
 
 
-public class FminTest extends Object implements Fmin_methods {
+public class FminTest extends Object implements DoubleFmin_methods {
 
    int id_f_to_min;
    double c,d,e;
@@ -72,7 +72,7 @@ public class FminTest extends Object implements Fmin_methods {
          b = Console.readDouble("\nWhat is the b value?  ");
          tol = Console.readDouble("\nWhat is the tol value?  ");
 
-         xmin = Fmin.fmin(a,b,fmintest,tol);
+         xmin = DoubleFmin.fmin(a,b,fmintest,tol);
 
          System.out.print("\nThe xmin value is " + xmin + "\n");      
 

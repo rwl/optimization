@@ -75,7 +75,7 @@ import optimization.*;
 * 
 */
 
-public class Fmin extends Object {
+public class FloatFmin extends Object {
 
 /**
 *
@@ -98,7 +98,7 @@ public class Fmin extends Object {
 *                  in Fmin_methods.java).  See FminTest.java
 *                  for an example of such a class.
 *                  f_to_minimize must have one
-*                  double valued argument.
+*                  float valued argument.
 *@param  tol       Desired length of the interval in which
 *                  the minimum will be determined to lie
 *                  (This should be greater than, roughly, 3.0e-8.)
@@ -106,8 +106,8 @@ public class Fmin extends Object {
 */
 
 
-   public static double fmin (double a, double b, Fmin_methods minclass,
-                              double tol) {
+   public static float fmin (float a, float b, FloatFmin_methods minclass,
+                              float tol) {
 
 /*
 
@@ -153,36 +153,36 @@ c
 
 */
 
-      double c,d,e,eps,xm,p,q,r,tol1,t2,
+      float c,d,e,eps,xm,p,q,r,tol1,t2,
              u,v,w,fu,fv,fw,fx,x,tol3;
 
-      c = .5*(3.0 - Math.sqrt(5.0));
-      d = 0.0;
+      c = (float) (.5*(3.0 - Math.sqrt(5.0)));
+      d = 0.0f;
 
 // 1.1102e-16 is machine precision
 
-      eps = 1.2e-16;
-      tol1 = eps + 1.0;
-      eps = Math.sqrt(eps);
+      eps = 1.2e-16f;
+      tol1 = eps + 1.0f;
+      eps = (float) Math.sqrt(eps);
 
       v = a + c*(b-a);
       w = v;
       x = v;
-      e = 0.0;
+      e = 0.0f;
       fx = minclass.f_to_minimize(x);
       fv = fx;
       fw = fx;
-      tol3 = tol/3.0;
+      tol3 = tol/3.0f;
 
-      xm = .5*(a + b);
+      xm = .5f*(a + b);
       tol1 = eps*Math.abs(x) + tol3;
-      t2 = 2.0*tol1;
+      t2 = 2.0f*tol1;
 
 // main loop
 
       while (Math.abs(x-xm) > (t2 - .5*(b-a))) {
 
-         p = q = r = 0.0;
+         p = q = r = 0.0f;
 
          if (Math.abs(e) > tol1) {
 
@@ -191,7 +191,7 @@ c
             r = (x-w)*(fx-fv);
             q = (x-v)*(fx-fw);
             p = (x-v)*q - (x-w)*r;
-            q = 2.0*(q-r);
+            q = 2.0f*(q-r);
 
             if (q > 0.0) {
 
@@ -304,9 +304,9 @@ c
             x = u;
             fx = fu;
 
-            xm = .5*(a + b);
+            xm = .5f*(a + b);
             tol1 = eps*Math.abs(x) + tol3;
-            t2 = 2.0*tol1;
+            t2 = 2.0f*tol1;
 
 // brace below corresponds to statement 170
          } else {
@@ -318,24 +318,24 @@ c
                w = u;
                fw = fu;
 
-               xm = .5*(a + b);
+               xm = .5f*(a + b);
                tol1 = eps*Math.abs(x) + tol3;
-               t2 = 2.0*tol1;
+               t2 = 2.0f*tol1;
 
             } else if ((fu > fv) && (v != x) && (v != w)) {
 
-               xm = .5*(a + b);
+               xm = .5f*(a + b);
                tol1 = eps*Math.abs(x) + tol3;
-               t2 = 2.0*tol1;
+               t2 = 2.0f*tol1;
 
             } else {
 
                v = u;
                fv = fu;
 
-               xm = .5*(a + b);
+               xm = .5f*(a + b);
                tol1 = eps*Math.abs(x) + tol3;
-               t2 = 2.0*tol1;
+               t2 = 2.0f*tol1;
 
             }
 
